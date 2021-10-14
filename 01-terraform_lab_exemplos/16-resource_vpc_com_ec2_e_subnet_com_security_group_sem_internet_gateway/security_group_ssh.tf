@@ -8,8 +8,8 @@ data "http" "myip" {
   url = "http://ipv4.icanhazip.com" # outra opção "https://ifconfig.me"
 }
 
-resource "aws_security_group" "allow_ssh1" {
-  name        = "allow_ssh_1_vpc_terraform"
+resource "aws_security_group" "allow_ssh_tf_carol" {
+  name        = "allow_ssh_1_vpc_terraform_carol"
   description = "Allow SSH inbound traffic criado pelo terraform VPC"
 
   ingress = [
@@ -41,7 +41,7 @@ resource "aws_security_group" "allow_ssh1" {
   ]
 
   tags = {
-    Name = "allow_ssh"
+    Name = "allow_ssh_tf_carol"
   }
 }
 
