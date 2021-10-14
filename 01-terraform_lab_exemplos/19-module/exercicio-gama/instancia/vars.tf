@@ -1,3 +1,8 @@
+variable "subnet_id" {
+  type = string
+  description = "Digite o id da subnet: "
+}
+
 variable "nome" {
   type = string
   description = "Digite o nome da instancia: "
