@@ -4,7 +4,7 @@ resource "aws_instance" "web" {
   
   ami                     = "ami-09e67e426f25ce0d7"
   key_name                = "id_rsa" # key chave publica cadastrada na AWS 
-  subnet_id               =  module.criar_vpc.my_subnet.id # vincula a subnet direto e gera o IP automático
+  subnet_id               =  var.subnet_id # vincula a subnet direto e gera o IP automático
   private_ip              = "10.16.0.101"
   hibernation             = false
   associate_public_ip_address = true
