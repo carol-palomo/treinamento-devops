@@ -19,6 +19,7 @@ resource "aws_instance" "web" {
     encrypted             = true
     kms_key_id            = "f48a0432-3f72-4888-9b31-8bdf1c121a4c"
     delete_on_termination = true
+    tags = {}
   }
 
   tags = {
