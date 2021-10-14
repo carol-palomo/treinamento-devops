@@ -10,4 +10,6 @@ module "criar_vpc" {
 module "criar_ec2" {
   source = "./instancia"
   nome = "terraform_module_ec2-carol"
+  
+  subnet_id = module.criar_vpc.subnet_id-a
 }
