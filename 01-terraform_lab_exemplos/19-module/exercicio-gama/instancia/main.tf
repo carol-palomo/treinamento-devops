@@ -26,6 +26,6 @@ resource "aws_instance" "web" {
       }
 
   tags = {
-    Name = "var.nome-${each.value}"
+    Name = "${var.nome}-${each.value}"
   }
 }
