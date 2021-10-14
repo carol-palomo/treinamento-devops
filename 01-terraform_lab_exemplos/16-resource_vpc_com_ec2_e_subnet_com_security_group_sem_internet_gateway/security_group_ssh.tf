@@ -11,6 +11,7 @@ data "http" "myip" {
 resource "aws_security_group" "allow_ssh_tf_carol" {
   name        = "allow_ssh_1_vpc_terraform_carol"
   description = "Allow SSH inbound traffic criado pelo terraform VPC"
+  vpc_id = aws_vpc.my_vpc.id
 
   ingress = [
     {
