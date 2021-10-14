@@ -1,5 +1,4 @@
 resource "aws_instance" "web" {
-  count = length(var.ec2_type)
   for_each = toset(var.ec2_type)
   instance_type = "t2.${each.value}"
   
@@ -28,6 +27,6 @@ resource "aws_instance" "web" {
       }
 
   tags = {
-    Name = "var.nome-${count.index}"
+    Name = "var.nome-${each.value}"
   }
 }
