@@ -8,6 +8,7 @@ resource "aws_instance" "web" {
   key_name                = "id_rsa" # key chave publica cadastrada na AWS 
   subnet_id               =  aws_subnet.my_subnet.id # vincula a subnet direto e gera o IP automático
   private_ip              = "10.16.0.101"
+  associate_public_ip_address = true
   vpc_security_group_ids  = [
     "${aws_security_group.allow_ssh_terraform.id}",
   ]
