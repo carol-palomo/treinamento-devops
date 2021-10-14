@@ -1,3 +1,13 @@
+terraform {
+  backend "remote" {
+    organization = "gama-itau"
+
+    workspaces {
+      name = "exemplo-modules"
+    }
+  }
+}
+
 provider "aws" {
   region = "us-east-1"
 }
