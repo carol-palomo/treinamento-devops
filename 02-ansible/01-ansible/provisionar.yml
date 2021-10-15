@@ -4,12 +4,13 @@
 #      shell: "echo 'escrevendo algo no servidor' >> teste.txt"
 
   tasks:
-    - name: Creating a file with content
-      copy:
-        dest: "teste2.txt"
-        content: |
-          bla bla
-          bla bla bla
+  
+#    - name: Creating a file with content
+#      copy:
+#        dest: "teste2.txt"
+#        content: |
+#          bla bla
+#          bla bla bla
           
     - name: Update apt-get repo and cache
       apt: update_cache=yes force_apt_get=yes cache_valid_time=86400 # um dia
@@ -17,6 +18,16 @@
         
     - name: "Instalando apache"
       apt:
-        name: "apache2"
+        name: "{{ item }}"
         state: latest
       become: yes # permite rodar como sudo
+      with_items:
+        - php7.4
+        - apache2
+        - libapache2-mod-php7.4
+        - php-mysql
+        - php-curl
+        - mysql-server
+        - python3-pycurl
+        - python3-mysqldb
+        - unzip
