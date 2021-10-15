@@ -1,3 +1,10 @@
 - hosts: all
   tasks:
-    - shell: "echo 'escrevendo algo no servidor' >> teste.txt"
+    - name: "Criando um arquivo no servidor"
+      shell: "echo 'escrevendo algo no servidor' >> teste.txt"
+    
+    - name: "Instalando apache"
+      apt:
+        name: "apache2"
+        state: lateste
+      become: yes # permite rodar como sudo
