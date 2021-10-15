@@ -19,6 +19,7 @@
       become: yes # permite rodar como sudo
       with_items:
         - nginx
+        - unzip
         
     - name: "Fazendo downlaod do tema bootstrap"
       get_url:
