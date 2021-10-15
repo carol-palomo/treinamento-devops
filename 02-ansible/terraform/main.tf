@@ -7,6 +7,7 @@ resource "aws_instance" "web" {
   instance_type           = "t3.micro"
   key_name                = "id_rsa" # key chave publica cadastrada na AWS 
   vpc_security_group_ids  = ["${aws_security_group.allow_ssh_tf_carol.id}"]
+  subnet_id               =  "subnet-0ab487dbac2dcfa24"
   associate_public_ip_address = true
   
   root_block_device {
