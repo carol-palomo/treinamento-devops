@@ -40,7 +40,9 @@
         line: '        root /var/www/html/startbootstrap-sb-admin-2-gh-pages'
         backrefs: yes
       become: yes  
-      
+      notify:
+        - "restart nginx"  
+        
     - name: Remove file (delete file)
       ansible.builtin.file:
         path: /var/www/html/index.nginx-debian.html
