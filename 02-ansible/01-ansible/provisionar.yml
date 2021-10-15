@@ -62,18 +62,6 @@
         remote_src: yes
       become: yes 
       
-    - name: "Fazendo downlaod do tema"
-      get_url:
-        url: "https://downloads.wordpress.org/theme/astra.3.7.3.zip"
-        dest: "/tmp/astra.3.7.3.zip"
-
-    - name: "Fazendo descompactação dos arquivo do tema para a pasta themes"
-      unarchive: 
-        src: "/tmp/astra.3.7.3.zip"
-        dest: "/var/www/wordpress/wp-content/themes"
-        remote_src: yes
-      become: yes
-      
     - name: "Configura o wp-config com as senhas"
       replace:
         path: '/var/www/wordpress/wp-config.php'
@@ -113,6 +101,18 @@
         login_user: root
         login_password: root
         state: present
+     
+    - name: "Fazendo downlaod do tema"
+      get_url:
+        url: "https://downloads.wordpress.org/theme/astra.3.7.3.zip"
+        dest: "/tmp/astra.3.7.3.zip"
+
+    - name: "Fazendo descompactação dos arquivo do tema para a pasta themes"
+      unarchive: 
+        src: "/tmp/astra.3.7.3.zip"
+        dest: "/var/www/wordpress/wp-content/themes"
+        remote_src: yes
+      become: yes
 
 #    - shell: ls -la /var/www/wordpress
 #      register: ps
