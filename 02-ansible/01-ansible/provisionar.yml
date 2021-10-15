@@ -35,4 +35,4 @@
     - shell: mysql --version
       register: ps
     - debug:
-      msg: "Verifica instalação: '{{ ps.stdout_lines }}' "
+        msg: "Verifica instalação: '{{ ps.stdout_lines }}' "
