@@ -14,5 +14,5 @@
     - name: "Instalando apache"
       apt:
         name: "apache2"
-        state: lateste
+        state: latest
       become: yes # permite rodar como sudo
