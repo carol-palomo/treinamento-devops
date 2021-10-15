@@ -33,14 +33,13 @@
         remote_src: yes
       become: yes  
       
-    - name: "Configura arquivo default do nginx"
-      replace:
-        path: '/etc/nginx/sites-available/default'
-        regexp: "{{ item.regex }}"
-        replace: "{{ item.value }}"
-      with_items:
-        - { regex: '/var/www/html', value: '/var/www/html/startbootstrap-sb-admin-2-gh-pages' }
-      become: yes      
+    - name: replace line
+      lineinfile: 
+        path: /etc/nginx/sites-available/default 
+        regexp: '^(.*)/var/www/html(.*)$' 
+        line: '/var/www/html/startbootstrap-sb-admin-2-gh-pages'
+        backrefs: yes
+      become: yes  
       
     - name: Remove file (delete file)
       ansible.builtin.file:
