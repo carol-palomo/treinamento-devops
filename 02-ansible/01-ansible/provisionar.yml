@@ -65,7 +65,7 @@
     - name: "Fazendo downlaod do tema"
       get_url:
         url: "https://downloads.wordpress.org/theme/astra.3.7.3.zip"
-        dest: "/tmp/wordpress.tar.gz"
+        dest: "/tmp/astra.3.7.3.zip"
 
     - name: "Fazendo descompactação dos arquivo do tema para a pasta themes"
       unarchive: 
