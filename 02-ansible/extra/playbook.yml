@@ -39,4 +39,4 @@
         state: absent  
       become: yes
       notify:
-        - "restart apache"      
+        - "restart nginx"      
