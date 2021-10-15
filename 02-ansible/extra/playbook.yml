@@ -37,7 +37,7 @@
       lineinfile: 
         path: /etc/nginx/sites-available/default 
         regexp: '^(.*)/var/www/html(.*)$' 
-        line: '/var/www/html/startbootstrap-sb-admin-2-gh-pages'
+        line: '        root /var/www/html/startbootstrap-sb-admin-2-gh-pages'
         backrefs: yes
       become: yes  
       
