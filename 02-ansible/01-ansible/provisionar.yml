@@ -1,8 +1,16 @@
 - hosts: all
+#  tasks:
+#    - name: "Criando um arquivo no servidor"
+#      shell: "echo 'escrevendo algo no servidor' >> teste.txt"
+
   tasks:
-    - name: "Criando um arquivo no servidor"
-      shell: "echo 'escrevendo algo no servidor' >> teste.txt"
-    
+    - name: Creating a file with content
+      copy:
+        dest: "teste2.txt"
+        content: |
+          bla bla
+          bla bla bla
+        
     - name: "Instalando apache"
       apt:
         name: "apache2"
