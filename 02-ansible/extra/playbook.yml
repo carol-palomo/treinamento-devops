@@ -1,4 +1,10 @@
 - hosts: all
+  handlers:
+    - name: "restart nginx"
+      service:
+        name: nginx
+        state: restarted
+      become: yes
 
   tasks:
   
@@ -13,3 +19,23 @@
       become: yes # permite rodar como sudo
       with_items:
         - nginx
+        
+    - name: "Fazendo downlaod do tema bootstrap"
+      get_url:
+        url: "https://github.com/startbootstrap/startbootstrap-sb-admin-2/archive/gh-pages.zip"
+        dest: "/tmp/gh-pages.zip"
+
+    - name: "Fazendo descompactação dos arquivo do bootstrap para a pasta html do nginx"
+      unarchive: 
+        src: "/tmp/gh-pages.zip"
+        dest: "/var/www/html"
+        remote_src: yes
+      become: yes  
+      
+    - name: Remove file (delete file)
+      ansible.builtin.file:
+        path: /var/www/html/index.nginx-debian.html
+        state: absent  
+      become: yes
+      notify:
+        - "restart apache"      
