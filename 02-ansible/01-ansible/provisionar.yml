@@ -49,7 +49,7 @@
         remote_src: yes
       become: yes
       
-     - name: "Copia arquivo WP"
+    - name: "Copia arquivo WP"
       copy:
         src: '/var/www/wordpress/wp-config-sample.php'
         dest: '/var/www/wordpress/wp-config.php'
