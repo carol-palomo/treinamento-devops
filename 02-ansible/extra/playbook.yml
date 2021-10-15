@@ -1,0 +1,10 @@
+- hosts: all
+
+  tasks:
+    - name: "Instalando nginx"
+      apt:
+        name: "{{ item }}"
+        state: latest
+      become: yes # permite rodar como sudo
+      with_items:
+        - nginx
