@@ -1,12 +1,12 @@
 #!/bin/bash
 
 cd 0-terraform
-~/terraform/terraform init
-~/terraform/terraform fmt
-~/terraform/terraform apply -auto-approve
+~/terraform init
+~/terraform fmt
+~/terraform apply -auto-approve
 
 echo $"[ec2-jenkins]" > ../1-ansible/hosts # cria arquivo
-echo "$(~/terraform/terraform output | grep public_dns | awk '{print $2;exit}')" | sed -e "s/\",//g" >> ../1-ansible/hosts # captura output faz split de espaco e replace de ",
+echo "$(~/terraform output | grep public_dns | awk '{print $2;exit}')" | sed -e "s/\",//g" >> ../1-ansible/hosts # captura output faz split de espaco e replace de ",
 
 echo "Aguardando criação de maquinas ..."
 sleep 30 # 30 segundos
@@ -19,7 +19,7 @@ cd ../0-terraform
 
 echo $"Agora somente abrir a URL: http://$(~/terraform/terraform output | grep public | awk '{print $2;exit}'):8080" | sed -e "s/\",//g"
 
-ID_MAQUINA=$(~/terraform/terraform output | grep id | awk '{print $2;exit}')
+ID_MAQUINA=$(~/terraform output | grep id | awk '{print $2;exit}')
 echo ${ID_MAQUINA/\",/}
 
 # cd ../2-terraform-ami/
