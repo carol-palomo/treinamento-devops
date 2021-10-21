@@ -15,7 +15,7 @@ cd ../1-ansible
 sudo ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key /root/.ssh/id_rsa
 
 cd ../0-terraform
-~/terraform/terraform output
+~/terraform output
 
 echo $"Agora somente abrir a URL: http://$(~/terraform output | grep public | awk '{print $2;exit}'):8080" | sed -e "s/\",//g"
 
