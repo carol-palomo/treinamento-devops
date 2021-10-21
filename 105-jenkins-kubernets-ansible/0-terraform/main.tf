@@ -27,6 +27,7 @@ resource "aws_instance" "jenkins" {
 resource "aws_security_group" "jenkins" {
   name        = "acessos_jenkins"
   description = "acessos_jenkins inbound traffic"
+  vpc_id = "vpc-0304dcb48c5e67fa0"
 
   ingress = [
     {
