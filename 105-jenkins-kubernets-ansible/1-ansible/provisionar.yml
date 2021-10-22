@@ -10,6 +10,9 @@
 
     - name: "Instala java"
       shell: "sudo apt install default-jdk -y"
+      
+    - name: "Instala maven"
+      shell: "sudo apt install mvn -y" 
    
     # https://www.jenkins.io/doc/book/installing/linux/
     - name: "Add pacote jenkins"
