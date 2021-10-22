@@ -6,20 +6,20 @@
       shell: wget -qO - https://pkg.jenkins.io/debian-stable/jenkins.io.key | apt-key add -
 
     - name: "Update apt"
-      shell: "apt-get update"
+      shell: "sudo apt-get update"
 
     - name: "Instala java"
-      shell: "apt install default-jdk -y"
+      shell: "sudo apt install default-jdk -y"
    
     # https://www.jenkins.io/doc/book/installing/linux/
     - name: "Add pacote jenkins"
       shell: sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
     
     - name: "Update apt"
-      shell: "apt-get update"
+      shell: "sudo apt-get update"
 
     - name: "Instala jenkins"
-      shell: "apt-get install jenkins -y"
+      shell: "sudo apt-get install jenkins -y"
 
     - name: Espera 30 segundos
       wait_for: timeout=30
